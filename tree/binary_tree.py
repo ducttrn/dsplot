@@ -5,7 +5,7 @@ import pygraphviz
 
 from config import config
 from errors import InputException
-from tree import TreeNode
+from tree import BinaryTreeNode
 
 
 class BinaryTree:
@@ -17,9 +17,9 @@ class BinaryTree:
         self.root = self.construct_tree(nodes)
 
     @staticmethod
-    def construct_tree(nodes: List[Optional[int]]) -> TreeNode:
+    def construct_tree(nodes: List[Optional[int]]) -> BinaryTreeNode:
         nodes = iter(nodes)
-        root = TreeNode(next(nodes))
+        root = BinaryTreeNode(next(nodes))
 
         q = Queue()
         q.put(root)
@@ -29,12 +29,12 @@ class BinaryTree:
             try:
                 left_val = next(nodes)
                 if left_val:
-                    cur_node.left = TreeNode(left_val)
+                    cur_node.left = BinaryTreeNode(left_val)
                     q.put(cur_node.left)
 
                 right_val = next(nodes)
                 if right_val:
-                    cur_node.right = TreeNode(right_val)
+                    cur_node.right = BinaryTreeNode(right_val)
                     q.put(cur_node.right)
 
             except StopIteration:
@@ -80,7 +80,7 @@ class BinaryTree:
         graph.close()
 
     @staticmethod
-    def _add_nodes(graph: pygraphviz.AGraph, node: TreeNode):
+    def _add_nodes(graph: pygraphviz.AGraph, node: BinaryTreeNode):
         cur_id = 0
         level = 0
 
