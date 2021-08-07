@@ -2,10 +2,11 @@ from queue import Queue
 from typing import Dict, List, Union
 
 import pygraphviz
-from graph_node import GraphNode
 
 from config import config
 from errors import InputException
+
+from .graph_node import GraphNode
 
 Node = Union[int, str]
 
@@ -38,9 +39,6 @@ class Graph:
         visited = set()
 
         def _dfs(cur_node):
-            if not cur_node:
-                return
-
             dfs_nodes.append(cur_node.val)
             visited.add(cur_node)
             for neighbor in cur_node.neighbors:
@@ -93,13 +91,3 @@ class Graph:
             )
             for neighbor in node.neighbors:
                 graph.add_edge(node_id, node_ids[neighbor])
-
-
-if __name__ == '__main__':
-    grp = Graph(
-        {0: [1, 4, 5], 1: [3, 4], 2: [1], 3: [2, 4], 4: [], 5: []}, directed=True
-    )
-    grp.plot()
-
-    print(grp.bfs())
-    print(grp.dfs())

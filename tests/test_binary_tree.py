@@ -3,7 +3,7 @@ import os
 import pytest
 
 from errors import InputException
-from tree.binary_tree import BinaryTree
+from tree import BinaryTree
 
 
 def test_binary_tree():
@@ -17,10 +17,9 @@ def test_binary_tree():
     assert tree.inorder() == [7, 11, 2, 4, 5, 13, 8, 5, 4, 1]
     assert tree.postorder() == [7, 2, 11, 4, 13, 5, 1, 4, 8, 5]
 
-    tree.plot('tests/test_data/graph.png')
-    assert 'graph.png' in os.listdir('tests/test_data')
+    tree.plot('tests/test_data/tree.png')
+    assert 'tree.png' in os.listdir('tests/test_data')
 
     with pytest.raises(InputException) as e:
         BinaryTree(nodes=[])
-
     assert str(e.value) == 'Input list must have at least 1 element.'

@@ -5,7 +5,8 @@ import pygraphviz
 
 from config import config
 from errors import InputException
-from tree import BinaryTreeNode
+
+from .tree_node import BinaryTreeNode
 
 
 class BinaryTree:
