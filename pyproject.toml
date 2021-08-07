@@ -17,13 +17,17 @@ keywords = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-graphviz = "0.17"
+graphviz = "^0.17"
 pygraphviz = "^1.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
 pytest-cov = "*"
 pre-commit = "*"
+
+[tool.poetry.extras]
+all = ["graphviz"]
+graphviz = ["graphviz"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

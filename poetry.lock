@@ -315,10 +315,14 @@ python-versions = ">=3.6"
 docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-cov", "pytest-enabler (>=1.0.1)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
+[extras]
+all = ["graphviz"]
+graphviz = ["graphviz"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "849210cbe47d3c77eb7b49dcc433d88a0d7a78f49344365ce00008213ff32a40"
+content-hash = "7c9525b7e35c4b5e0804373e57ec3d87260298952b4b78013e3d45981e786029"
 
 [metadata.files]
 atomicwrites = [
