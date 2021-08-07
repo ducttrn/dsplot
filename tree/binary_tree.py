@@ -69,12 +69,12 @@ class BinaryTree:
 
     def plot(self):
         graph = pygraphviz.AGraph(directed=False)
-        graph.graph_attr["rankdir"] = "TB"
-        graph.graph_attr["ordering"] = "out"
+        graph.graph_attr['rankdir'] = 'TB'
+        graph.graph_attr['ordering'] = 'out'
 
         self._add_nodes(graph, self.root)
-        graph.layout(prog="dot")
-        graph.draw("foo.png")
+        graph.layout(prog='dot')
+        graph.draw('foo.png')
         graph.close()
 
     @staticmethod
@@ -91,10 +91,10 @@ class BinaryTree:
             graph.add_node(
                 node_id,
                 label=node.val,
-                color="black",
-                shape="circle",
-                style="filled",
-                fillcolor="#FFCE30",
+                color='black',
+                shape='circle',
+                style='filled',
+                fillcolor='#FFCE30',
             )
             if len(levels) == level:
                 levels.append([node_id])
@@ -106,16 +106,16 @@ class BinaryTree:
             if node.left:
                 q.put((node.left, cur_id, level + 1))
             else:
-                graph.add_node(cur_id, label="#", color="black", shape="square")
+                graph.add_node(cur_id, label='#', color='black', shape='square')
 
             cur_id += 1
             graph.add_edge(node_id, cur_id)
             if node.right:
                 q.put((node.right, cur_id, level + 1))
             else:
-                graph.add_node(cur_id, label="#", color="black", shape="square")
+                graph.add_node(cur_id, label='#', color='black', shape='square')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1, 23, 12])
     tree.plot()
