@@ -12,10 +12,11 @@ keywords = [
     "Data Structure",
     "Tree",
     "Graph",
+    "Plot"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 pygraphviz = "^1.7"
 
 [tool.poetry.dev-dependencies]
