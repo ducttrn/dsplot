@@ -2,6 +2,7 @@ language: python
 python:
   - "3.9"
 before_install:
+  - pip install graphviz
   - pip install poetry
 install:
   - poetry install
