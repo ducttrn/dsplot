@@ -69,8 +69,9 @@ class BinaryTree:
             yield node.val
 
     def plot(self):
-        graph = pygraphviz.AGraph(directed=True)
+        graph = pygraphviz.AGraph(directed=False)
         graph.graph_attr["rankdir"] = "TB"
+        graph.graph_attr["ordering"] = "out"
 
         self._add_nodes(graph, self.root)
         graph.layout(prog='dot')
@@ -88,21 +89,25 @@ class BinaryTree:
 
         while not q.empty():
             node, node_id, level = q.get()
-            graph.add_node(node_id, label=node.val, color='black')
+            graph.add_node(node_id, label=node.val, color='black', shape='circle', style='filled', fillcolor="#FFCE30")
             if len(levels) == level:
                 levels.append([node_id])
             else:
                 levels[level].append(node_id)
 
+            cur_id += 1
+            graph.add_edge(node_id, cur_id)
             if node.left:
-                cur_id += 1
                 q.put((node.left, cur_id, level + 1))
-                graph.add_edge(node_id, cur_id)
+            else:
+                graph.add_node(cur_id, label='#', color='black', shape='square')
 
+            cur_id += 1
+            graph.add_edge(node_id, cur_id)
             if node.right:
-                cur_id += 1
                 q.put((node.right, cur_id, level + 1))
-                graph.add_edge(node_id, cur_id)
+            else:
+                graph.add_node(cur_id, label='#', color='black', shape='square')
 
 
 if __name__ == "__main__":
