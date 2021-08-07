@@ -20,7 +20,7 @@ python = "^3.7"
 pygraphviz = "^1.7"
 
 [tool.poetry.dev-dependencies]
-pytest = "*"
+pytest = "6.2.4"
 pre-commit = "*"
 
 [build-system]
