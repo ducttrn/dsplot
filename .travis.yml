@@ -8,6 +8,6 @@ install:
   - poetry install
   - pip install coveralls
 script:
-  - poetry run pytest
+  - poetry run pytest --cov=dsplot
 after_success:
   - coveralls
