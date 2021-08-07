@@ -1,2 +1,26 @@
 [tool.black]
 skip-string-normalization = true
+
+[tool.poetry]
+name = "dsplot"
+version = "0.1.0"
+description = "Plot data structures with ease."
+authors = ["Bill <trantriducs@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = [
+    "Data Structure",
+    "Tree",
+    "Graph",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pygraphviz = "^1.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

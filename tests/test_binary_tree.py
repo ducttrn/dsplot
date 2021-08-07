@@ -2,8 +2,8 @@ import os
 
 import pytest
 
+from dsplot.tree import BinaryTree
 from errors import InputException
-from tree import BinaryTree
 
 
 def test_binary_tree():
