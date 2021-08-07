@@ -17,10 +17,12 @@ keywords = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
+graphviz = "0.17"
 pygraphviz = "^1.7"
 
 [tool.poetry.dev-dependencies]
-pytest = "6.2.4"
+pytest = "*"
+pytest-cov = "*"
 pre-commit = "*"
 
 [build-system]
