@@ -13,7 +13,6 @@ class BinaryTree:
         if not nodes:
             raise InputException('Input list must have at least 1 element.')
 
-        self.nodes = nodes
         self.root = self.construct_tree(nodes)
 
     @staticmethod
@@ -74,18 +73,17 @@ class BinaryTree:
         graph.graph_attr['rankdir'] = 'TB'
         graph.graph_attr['ordering'] = 'out'
 
-        self._add_nodes(graph, self.root)
+        self._add_nodes(graph)
         graph.layout(prog='dot')
         graph.draw(output_path)
         graph.close()
 
-    @staticmethod
-    def _add_nodes(graph: pygraphviz.AGraph, node: BinaryTreeNode):
+    def _add_nodes(self, graph: pygraphviz.AGraph):
         cur_id = 0
         level = 0
 
         q = Queue()
-        q.put((node, cur_id, level))
+        q.put((self.root, cur_id, level))
         levels = []
 
         while not q.empty():
