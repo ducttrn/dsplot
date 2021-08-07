@@ -3,6 +3,7 @@ from typing import List, Optional
 
 import pygraphviz
 
+from config import config
 from tree import TreeNode
 
 
@@ -91,10 +92,10 @@ class BinaryTree:
             graph.add_node(
                 node_id,
                 label=node.val,
-                color='black',
-                shape='circle',
-                style='filled',
-                fillcolor='#FFCE30',
+                color=config.NODE_COLOR,
+                shape=config.NODE_SHAPE,
+                style=config.NODE_STYLE,
+                fillcolor=config.NODE_FILL_COLOR,
             )
             if len(levels) == level:
                 levels.append([node_id])
@@ -106,14 +107,24 @@ class BinaryTree:
             if node.left:
                 q.put((node.left, cur_id, level + 1))
             else:
-                graph.add_node(cur_id, label='#', color='black', shape='square')
+                graph.add_node(
+                    cur_id,
+                    label=config.LEAF_LABEL,
+                    color=config.NODE_COLOR,
+                    shape=config.LEAF_SHAPE,
+                )
 
             cur_id += 1
             graph.add_edge(node_id, cur_id)
             if node.right:
                 q.put((node.right, cur_id, level + 1))
             else:
-                graph.add_node(cur_id, label='#', color='black', shape='square')
+                graph.add_node(
+                    cur_id,
+                    label=config.LEAF_LABEL,
+                    color=config.NODE_COLOR,
+                    shape=config.LEAF_SHAPE,
+                )
 
 
 if __name__ == '__main__':
