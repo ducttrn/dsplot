@@ -4,13 +4,14 @@ from typing import List, Optional
 import pygraphviz
 
 from config import config
+from errors import InputException
 from tree import TreeNode
 
 
 class BinaryTree:
     def __init__(self, nodes: List[Optional[int]]):
         if not nodes:
-            raise Exception
+            raise InputException('Input list must have at least 1 element.')
 
         self.nodes = nodes
         self.root = self.construct_tree(nodes)
@@ -68,14 +69,14 @@ class BinaryTree:
             yield from self._postorder(node.right)
             yield node.val
 
-    def plot(self):
+    def plot(self, output_path='./graph.png'):
         graph = pygraphviz.AGraph(directed=False)
         graph.graph_attr['rankdir'] = 'TB'
         graph.graph_attr['ordering'] = 'out'
 
         self._add_nodes(graph, self.root)
         graph.layout(prog='dot')
-        graph.draw('foo.png')
+        graph.draw(output_path)
         graph.close()
 
     @staticmethod
@@ -125,8 +126,3 @@ class BinaryTree:
                     color=config.NODE_COLOR,
                     shape=config.LEAF_SHAPE,
                 )
-
-
-if __name__ == '__main__':
-    tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1, 23, 12])
-    tree.plot()
