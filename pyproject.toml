@@ -20,6 +20,7 @@ pygraphviz = "^1.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
+pre-commit = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

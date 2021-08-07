@@ -3,8 +3,8 @@ from typing import List, Optional
 
 import pygraphviz
 
-from config import config
-from errors import InputException
+from dsplot.config import config
+from dsplot.errors import InputException
 
 from .tree_node import BinaryTreeNode
 

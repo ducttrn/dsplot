@@ -2,8 +2,8 @@ import os
 
 import pytest
 
+from dsplot.errors import InputException
 from dsplot.graph import Graph
-from errors import InputException
 
 
 def test_graph():

@@ -3,8 +3,8 @@ from typing import Dict, List, Union
 
 import pygraphviz
 
-from config import config
-from errors import InputException
+from dsplot.config import config
+from dsplot.errors import InputException
 
 from .graph_node import GraphNode
 
