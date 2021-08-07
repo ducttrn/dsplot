@@ -3,7 +3,7 @@ skip-string-normalization = true
 
 [tool.poetry]
 name = "dsplot"
-version = "0.1.0"
+version = "0.2.0"
 description = "Plot data structures with ease."
 authors = ["Bill <trantriducs@gmail.com>"]
 license = "MIT"
