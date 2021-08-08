@@ -77,7 +77,6 @@ print(tree.postorder())
 # [7, 2, 11, 4, 13, 5, 1, 4, 8, 5]
 ```
 ### 2. Graph traversals:
-- Depth-first search (DFS)
 ```python
 from dsplot.graph import Graph
 
