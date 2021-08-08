@@ -3,8 +3,8 @@ skip-string-normalization = true
 
 [tool.poetry]
 name = "dsplot"
-version = "0.3.0"
-description = "Plot data structures with ease."
+version = "0.4.0"
+description = "Visualize Tree and Graph data structures with ease."
 authors = ["Bill <trantriducs@gmail.com>"]
 license = "MIT"
 readme = "README.md"
