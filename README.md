@@ -61,7 +61,6 @@ graph.plot()
 
 ## 🎁 Additional features
 ### 1. Tree traversals:
-- Preorder
 ```python
 from dsplot.tree import BinaryTree
 
