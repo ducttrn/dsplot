@@ -57,7 +57,7 @@ graph = Graph(
 )
 graph.plot()
 ```
-![directed](https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true)
+![undirected](https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true)
 
 ## 🎁 Additional features
 ### 1. Tree traversals:
