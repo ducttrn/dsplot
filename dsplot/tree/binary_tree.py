@@ -1,5 +1,5 @@
 from queue import Queue
-from typing import List, Optional, Union
+from typing import List, Union
 
 import pygraphviz
 
