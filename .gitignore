@@ -3,3 +3,4 @@ venv
 __pycache__/
 dist
 .coverage
+.DS_Store

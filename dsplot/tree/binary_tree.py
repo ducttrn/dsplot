@@ -1,5 +1,5 @@
 from queue import Queue
-from typing import List, Optional
+from typing import List, Optional, Union
 
 import pygraphviz
 
@@ -8,16 +8,18 @@ from dsplot.errors import InputException
 
 from .tree_node import BinaryTreeNode
 
+Node = Union[int, str]
+
 
 class BinaryTree:
-    def __init__(self, nodes: List[Optional[int]]):
+    def __init__(self, nodes: List[Node]):
         if not nodes:
             raise InputException('Input list must have at least 1 element.')
 
         self.root = self.construct_tree(nodes)
 
     @staticmethod
-    def construct_tree(nodes: List[Optional[int]]) -> BinaryTreeNode:
+    def construct_tree(nodes: List[Node]) -> BinaryTreeNode:
         nodes = iter(nodes)
         root = BinaryTreeNode(next(nodes))
 
@@ -42,7 +44,7 @@ class BinaryTree:
 
         return root
 
-    def preorder(self) -> List[int]:
+    def preorder(self) -> List[Node]:
         return list(self._preorder(self.root))
 
     def _preorder(self, node):
@@ -51,7 +53,7 @@ class BinaryTree:
             yield from self._preorder(node.left)
             yield from self._preorder(node.right)
 
-    def inorder(self) -> List[int]:
+    def inorder(self) -> List[Node]:
         return list(self._inorder(self.root))
 
     def _inorder(self, node):
@@ -60,7 +62,7 @@ class BinaryTree:
             yield node.val
             yield from self._inorder(node.right)
 
-    def postorder(self) -> List[int]:
+    def postorder(self) -> List[Node]:
         return list(self._postorder(self.root))
 
     def _postorder(self, node):
