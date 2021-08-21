@@ -71,7 +71,7 @@ class BinaryTree:
             yield from self._postorder(node.right)
             yield node.val
 
-    def plot(self, output_path='./graph.png'):
+    def plot(self, output_path='./tree.png'):
         graph = pygraphviz.AGraph(directed=False)
         graph.graph_attr['rankdir'] = 'TB'
         graph.graph_attr['ordering'] = 'out'
@@ -83,14 +83,12 @@ class BinaryTree:
 
     def _add_nodes(self, graph: pygraphviz.AGraph):
         cur_id = 0
-        level = 0
 
         q = Queue()
-        q.put((self.root, cur_id, level))
-        levels = []
+        q.put((self.root, cur_id))
 
         while not q.empty():
-            node, node_id, level = q.get()
+            node, node_id = q.get()
             graph.add_node(
                 node_id,
                 label=node.val,
@@ -99,15 +97,11 @@ class BinaryTree:
                 style=config.NODE_STYLE,
                 fillcolor=config.NODE_FILL_COLOR,
             )
-            if len(levels) == level:
-                levels.append([node_id])
-            else:
-                levels[level].append(node_id)
 
             cur_id += 1
             graph.add_edge(node_id, cur_id)
             if node.left:
-                q.put((node.left, cur_id, level + 1))
+                q.put((node.left, cur_id))
             else:
                 graph.add_node(
                     cur_id,
@@ -119,7 +113,7 @@ class BinaryTree:
             cur_id += 1
             graph.add_edge(node_id, cur_id)
             if node.right:
-                q.put((node.right, cur_id, level + 1))
+                q.put((node.right, cur_id))
             else:
                 graph.add_node(
                     cur_id,
