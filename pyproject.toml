@@ -3,8 +3,8 @@ skip-string-normalization = true
 
 [tool.poetry]
 name = "dsplot"
-version = "0.4.0"
-description = "Visualize Tree and Graph data structures with ease."
+version = "0.5.0"
+description = "Visualize Tree, Graph, and Matrix data structures with ease."
 authors = ["Bill <trantriducs@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -12,6 +12,7 @@ keywords = [
     "Data Structure",
     "Tree",
     "Graph",
+    "Matrix",
     "Plot"
 ]
 
