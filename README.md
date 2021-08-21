@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/billtrn/dsplot/blob/master/LICENSE)
 
 DSPlot is a tool to simply visualize tree and graph data structures by serving as a Pythonic interface to the [Graphviz](https://graphviz.org/) layout.
-DSPlot allows you to easily draw trees and graphs (both directed and undirected) by passing data in primitive form and directly output an image.
+DSPlot allows you to easily draw trees, graphs (both directed and undirected), and matrices by passing data in primitive form and directly output an image.
 
 ## ⬇ Installation
 
@@ -58,6 +58,15 @@ graph = Graph(
 graph.plot()
 ```
 ![undirected](https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true)
+
+- Matrix:
+```python
+from dsplot.matrix import Matrix
+
+matrix = Matrix([[1, 2, 3], [4, 5, 6], [1, 2, 6]])
+matrix.plot()
+```
+![matrix](https://github.com/billtrn/dsplot/blob/master/img/matrix.png?raw=true)
 
 ## 🎁 Additional features
 ### 1. Tree traversals:
