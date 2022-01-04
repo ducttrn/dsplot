@@ -20,7 +20,7 @@ brew install graphviz
 ```
 - Linux:
 ```
-apt-get install graphviz
+apt-get install graphviz libgraphviz-dev
 ```
 - Other OS(s): https://graphviz.org/download/
 
