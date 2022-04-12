@@ -5,7 +5,8 @@ class Config:
     NODE_STYLE = 'filled'
     NODE_FILL_COLOR = '#FFCE30'
     # TB: top to bottom, LR: left to right
-    GRAPH_ORIENTATION = 'TB'
+    TREE_ORIENTATION = 'TB'
+    GRAPH_ORIENTATION = 'LR'
 
     # Leaf
     LEAF_COLOR = 'black'

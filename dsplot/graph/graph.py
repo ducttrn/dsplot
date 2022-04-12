@@ -1,5 +1,5 @@
 from queue import Queue
-from typing import Dict, List, Union
+from typing import Dict, List, Literal, Union
 
 import pygraphviz
 
@@ -34,6 +34,46 @@ class Graph:
 
         return list(node_map.values())
 
+    def plot(
+        self,
+        output_path='./graph.png',
+        orientation: Literal['TB', 'LR'] = config.GRAPH_ORIENTATION,
+        border_color: str = config.NODE_COLOR,
+        shape: str = config.LEAF_SHAPE,
+        style: str = config.NODE_STYLE,
+        fill_color: str = config.NODE_FILL_COLOR,
+    ):
+        graph = pygraphviz.AGraph(directed=self.directed)
+        graph.graph_attr['rankdir'] = orientation
+
+        self._add_nodes(graph, border_color, shape, style, fill_color)
+
+        graph.layout(prog='dot')
+        graph.draw(output_path)
+        graph.close()
+
+    def _add_nodes(
+        self,
+        graph: pygraphviz.AGraph,
+        border_color: str,
+        shape: str,
+        style: str,
+        fill_color: str,
+    ):
+        node_ids = {node: id_ for id_, node in enumerate(self.nodes)}
+
+        for node_id, node in enumerate(self.nodes):
+            graph.add_node(
+                node_id,
+                label=node.val,
+                color=border_color,
+                shape=shape,
+                style=style,
+                fillcolor=fill_color,
+            )
+            for neighbor in node.neighbors:
+                graph.add_edge(node_id, node_ids[neighbor])
+
     def dfs(self):
         dfs_nodes = []
         visited = set()
@@ -66,28 +106,3 @@ class Graph:
                     visited.add(neighbor)
 
         return bfs_nodes
-
-    def plot(self, output_path='./graph.png'):
-        graph = pygraphviz.AGraph(directed=self.directed)
-        graph.graph_attr['rankdir'] = 'LR'
-
-        self._add_nodes(graph)
-
-        graph.layout(prog='dot')
-        graph.draw(output_path)
-        graph.close()
-
-    def _add_nodes(self, graph):
-        node_ids = {node: id for id, node in enumerate(self.nodes)}
-
-        for node_id, node in enumerate(self.nodes):
-            graph.add_node(
-                node_id,
-                label=node.val,
-                color=config.NODE_COLOR,
-                shape=config.NODE_SHAPE,
-                style=config.NODE_STYLE,
-                fillcolor=config.NODE_FILL_COLOR,
-            )
-            for neighbor in node.neighbors:
-                graph.add_edge(node_id, node_ids[neighbor])

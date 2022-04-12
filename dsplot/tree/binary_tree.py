@@ -47,7 +47,7 @@ class BinaryTree:
     def plot(
         self,
         output_path: str = './tree.png',
-        orientation: Literal['TB', 'LR'] = config.GRAPH_ORIENTATION,
+        orientation: Literal['TB', 'LR'] = config.TREE_ORIENTATION,
         border_color: str = config.NODE_COLOR,
         shape: str = config.LEAF_SHAPE,
         style: str = config.NODE_STYLE,
