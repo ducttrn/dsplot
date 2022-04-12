@@ -37,7 +37,7 @@ from dsplot.tree import BinaryTree
 tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
 tree.plot()
 ```
-![tree](https://github.com/billtrn/dsplot/blob/master/img/tree.png?raw=true)
+![tree](img/tree.png)
 
 - Graph:
 ```python
@@ -48,7 +48,7 @@ graph = Graph(
 )
 graph.plot()
 ```
-![directed](https://github.com/billtrn/dsplot/blob/master/img/directed.png?raw=true)
+![directed](img/directed.png)
 ```python
 from dsplot.graph import Graph
 
@@ -57,7 +57,7 @@ graph = Graph(
 )
 graph.plot()
 ```
-![undirected](https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true)
+![undirected](img/undirected.png)
 
 - Matrix:
 ```python
@@ -66,7 +66,7 @@ from dsplot.matrix import Matrix
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [1, 2, 6]])
 matrix.plot()
 ```
-![matrix](https://github.com/billtrn/dsplot/blob/master/img/matrix.png?raw=true)
+![matrix](img/matrix.png)
 
 - Customization: <br>
 You can customize the border color, shape, style, and fill color of the nodes, and the orientation (left to right - LR, top to bottom - TB) of the graph.
