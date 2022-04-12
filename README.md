@@ -68,6 +68,24 @@ matrix.plot()
 ```
 ![matrix](https://github.com/billtrn/dsplot/blob/master/img/matrix.png?raw=true)
 
+- Customization: <br>
+You can customize the border color, shape, style, and fill color of the nodes, and the orientation (left to right - LR, top to bottom - TB) of the graph.
+```python
+from dsplot.graph import Graph
+
+graph = Graph(
+    {0: [1, 4, 5], 1: [3, 4], 2: [1], 3: [2, 4], 4: [], 5: []}, directed=True
+)
+graph.plot(fill_color='#aec6cf')
+```
+![colored](img/color_graph.png)
+```python
+from dsplot.tree import BinaryTree
+
+tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
+tree.plot(orientation='LR', border_color='#FFCE30', fill_color='#aec6cf')
+```
+![colored](img/color_tree.png)
 ## 🎁 Additional features
 ### 1. Tree traversals:
 ```python
