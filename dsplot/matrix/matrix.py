@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Literal, Union
 
 import pygraphviz
 
@@ -15,17 +15,32 @@ class Matrix:
 
         self.nodes = nodes
 
-    def plot(self, output_path='./matrix.png'):
+    def plot(
+        self,
+        output_path='./matrix.png',
+        orientation: Literal['TB', 'LR'] = config.MATRIX_ORIENTATION,
+        border_color: str = config.BOX_COLOR,
+        shape: str = config.BOX_SHAPE,
+        style: str = config.BOX_STYLE,
+        fill_color: str = config.BOX_FILL_COLOR,
+    ):
         graph = pygraphviz.AGraph(ranksep=config.RANK_SEP)
-        graph.graph_attr['rankdir'] = 'TB'
+        graph.graph_attr['rankdir'] = orientation
         graph.graph_attr['ordering'] = 'out'
 
-        self._add_nodes(graph)
+        self._add_nodes(graph, border_color, shape, style, fill_color)
         graph.layout(prog='dot')
         graph.draw(output_path)
         graph.close()
 
-    def _add_nodes(self, graph):
+    def _add_nodes(
+        self,
+        graph: pygraphviz.AGraph,
+        border_color: str,
+        shape: str,
+        style: str,
+        fill_color: str,
+    ):
         node_id = 0
         node_ids = []
         for row in self.nodes:
@@ -34,10 +49,10 @@ class Matrix:
                 graph.add_node(
                     node_id,
                     label=node,
-                    color=config.BOX_COLOR,
-                    shape=config.BOX_SHAPE,
-                    style=config.BOX_STYLE,
-                    fillcolor=config.BOX_FILL_COLOR,
+                    color=border_color,
+                    shape=shape,
+                    style=style,
+                    fillcolor=fill_color,
                 )
                 row_ids.append(node_id)
                 node_id += 1

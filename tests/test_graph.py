@@ -14,7 +14,7 @@ def test_graph():
     assert graph.bfs() == [0, 1, 4, 5, 3, 2]
     assert graph.dfs() == [0, 1, 3, 2, 4, 5]
 
-    graph.plot('tests/test_data/graph.png')
+    graph.plot('tests/test_data/graph.png', fill_color='#aec6cf')
     assert 'graph.png' in os.listdir('tests/test_data')
 
     with pytest.raises(InputException) as e:

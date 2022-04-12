@@ -7,6 +7,7 @@ class Config:
     # TB: top to bottom, LR: left to right
     TREE_ORIENTATION = 'TB'
     GRAPH_ORIENTATION = 'LR'
+    MATRIX_ORIENTATION = 'TB'
 
     # Leaf
     LEAF_COLOR = 'black'

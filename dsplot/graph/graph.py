@@ -39,7 +39,7 @@ class Graph:
         output_path='./graph.png',
         orientation: Literal['TB', 'LR'] = config.GRAPH_ORIENTATION,
         border_color: str = config.NODE_COLOR,
-        shape: str = config.LEAF_SHAPE,
+        shape: str = config.NODE_SHAPE,
         style: str = config.NODE_STYLE,
         fill_color: str = config.NODE_FILL_COLOR,
     ):
