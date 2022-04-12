@@ -17,7 +17,12 @@ def test_binary_tree():
     assert tree.inorder() == [7, 11, 2, 4, 5, 13, 8, 5, 4, 1]
     assert tree.postorder() == [7, 2, 11, 4, 13, 5, 1, 4, 8, 5]
 
-    tree.plot('tests/test_data/tree.png')
+    tree.plot(
+        'tests/test_data/tree.png',
+        orientation='LR',
+        border_color='#FFCE30',
+        fill_color='#aec6cf',
+    )
     assert 'tree.png' in os.listdir('tests/test_data')
 
     with pytest.raises(InputException) as e:
