@@ -37,7 +37,7 @@ from dsplot.tree import BinaryTree
 tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
 tree.plot()
 ```
-![tree](img/tree.png)
+![tree](https://github.com/billtrn/dsplot/blob/master/img/tree.png?raw=true)
 
 - Graph:
 ```python
@@ -48,7 +48,7 @@ graph = Graph(
 )
 graph.plot()
 ```
-![directed](img/directed.png)
+![directed](https://github.com/billtrn/dsplot/blob/master/img/directed.png?raw=true)
 ```python
 from dsplot.graph import Graph
 
@@ -57,7 +57,7 @@ graph = Graph(
 )
 graph.plot()
 ```
-![undirected](img/undirected.png)
+![undirected](https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true)
 
 - Matrix:
 ```python
@@ -66,7 +66,7 @@ from dsplot.matrix import Matrix
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [1, 2, 6]])
 matrix.plot()
 ```
-![matrix](img/matrix.png)
+![matrix](https://github.com/billtrn/dsplot/blob/master/img/matrix.png?raw=true)
 
 - Customization: <br>
 You can customize the border color, shape, style, and fill color of the nodes, and the orientation (left to right - LR, top to bottom - TB) of the graph.
@@ -78,14 +78,14 @@ graph = Graph(
 )
 graph.plot(fill_color='#aec6cf')
 ```
-![colored](img/color_graph.png)
+![colored](https://github.com/billtrn/dsplot/blob/master/img/color_graph.png?raw=true)
 ```python
 from dsplot.tree import BinaryTree
 
 tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
 tree.plot(orientation='LR', border_color='#FFCE30', fill_color='#aec6cf')
 ```
-![colored](img/color_tree.png)
+![colored](https://github.com/billtrn/dsplot/blob/master/img/color_tree.png?raw=true)
 ## 🎁 Additional features
 ### 1. Tree traversals:
 ```python
