@@ -5,19 +5,18 @@ import pygraphviz
 
 from dsplot.config import config
 from dsplot.errors import InputException
+from dsplot.graph.graph_node import GraphNode
 
-from .graph_node import GraphNode
-
-Node = Union[int, str]
-Edge = Union[int, str]
+node_values = Union[int, str]
+edge_values = Union[int, str]
 
 
 class Graph:
     def __init__(
         self,
-        nodes: Dict[Node, List[Node]],
+        nodes: Dict[node_values, List[node_values]],
         directed: bool = False,
-        edges: Dict[Edge, Edge] = None,
+        edges: Dict[edge_values, edge_values] = None,
     ):
         if not nodes:
             raise InputException('Input list must have at least 1 element.')
@@ -27,7 +26,7 @@ class Graph:
         self.edges = edges or {}
 
     @staticmethod
-    def construct_graph(nodes: Dict[Node, List[Node]]) -> List[GraphNode]:
+    def construct_graph(nodes: Dict[node_values, List[node_values]]) -> List[GraphNode]:
         node_map = {}
         for node_val in nodes:
             node = GraphNode(node_val)
@@ -66,11 +65,9 @@ class Graph:
         style: str,
         fill_color: str,
     ):
-        node_ids = {node: id_ for id_, node in enumerate(self.nodes)}
-
-        for node_id, node in enumerate(self.nodes):
+        for node in self.nodes:
             graph.add_node(
-                node_id,
+                node.id,
                 label=node.val,
                 color=border_color,
                 shape=shape,
@@ -78,13 +75,12 @@ class Graph:
                 fillcolor=fill_color,
             )
             for neighbor in node.neighbors:
-                neighbor_id = node_ids[neighbor]
                 edge_weight = self.edges.get(
                     f'{node.val}{neighbor.val}'
                 ) or self.edges.get(f'{neighbor.val}{node.val}')
-                graph.add_edge(node_id, neighbor_id, label=edge_weight or '')
+                graph.add_edge(node.id, neighbor.id, label=edge_weight or '')
 
-    def dfs(self):
+    def dfs(self) -> List[node_values]:
         dfs_nodes = []
         visited = set()
 
@@ -98,7 +94,7 @@ class Graph:
         _dfs(self.nodes[0])
         return dfs_nodes
 
-    def bfs(self):
+    def bfs(self) -> List[node_values]:
         bfs_nodes = []
 
         q = Queue()
