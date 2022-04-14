@@ -4,16 +4,25 @@ import pygraphviz
 
 from dsplot.config import config
 from dsplot.errors import InputException
+from dsplot.matrix.matrix_node import MatrixNode
 
-Node = Union[int, str]
+node_values = Union[int, str]
 
 
 class Matrix:
-    def __init__(self, nodes: List[List[Node]]):
+    def __init__(self, nodes: List[List[node_values]]):
         if not nodes or not nodes[0]:
             raise InputException('Input list must have at least 1 element.')
 
-        self.nodes = nodes
+        self.nodes = self.construct_matrix(nodes)
+
+    @staticmethod
+    def construct_matrix(nodes: List[List[node_values]]) -> List[List[MatrixNode]]:
+        for i in range(len(nodes)):
+            for j in range(len(nodes[0])):
+                nodes[i][j] = MatrixNode(nodes[i][j])
+
+        return nodes
 
     def plot(
         self,
@@ -41,21 +50,20 @@ class Matrix:
         style: str,
         fill_color: str,
     ):
-        node_id = 0
+
         node_ids = []
         for row in self.nodes:
             row_ids = []
             for node in row:
                 graph.add_node(
-                    node_id,
-                    label=node,
+                    node.id,
+                    label=node.val,
                     color=border_color,
                     shape=shape,
                     style=style,
                     fillcolor=fill_color,
                 )
-                row_ids.append(node_id)
-                node_id += 1
+                row_ids.append(node.id)
 
             graph.add_subgraph(row_ids, rank=config.RANK)
             node_ids.append(row_ids)
