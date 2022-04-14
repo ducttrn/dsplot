@@ -9,16 +9,22 @@ from dsplot.errors import InputException
 from .graph_node import GraphNode
 
 Node = Union[int, str]
+Edge = Union[int, str]
 
 
 class Graph:
-    def __init__(self, nodes: Dict[Node, List[Node]], directed: bool = False):
+    def __init__(
+        self,
+        nodes: Dict[Node, List[Node]],
+        directed: bool = False,
+        edges: Dict[Edge, Edge] = None,
+    ):
         if not nodes:
             raise InputException('Input list must have at least 1 element.')
 
         self.directed = directed
         self.nodes = self.construct_graph(nodes)
-        self.node = self.nodes[0]
+        self.edges = edges or {}
 
     @staticmethod
     def construct_graph(nodes: Dict[Node, List[Node]]) -> List[GraphNode]:
@@ -72,7 +78,11 @@ class Graph:
                 fillcolor=fill_color,
             )
             for neighbor in node.neighbors:
-                graph.add_edge(node_id, node_ids[neighbor])
+                neighbor_id = node_ids[neighbor]
+                edge_weight = self.edges.get(
+                    f'{node.val}{neighbor.val}'
+                ) or self.edges.get(f'{neighbor.val}{node.val}')
+                graph.add_edge(node_id, neighbor_id, label=edge_weight or '')
 
     def dfs(self):
         dfs_nodes = []
@@ -85,16 +95,16 @@ class Graph:
                 if neighbor not in visited:
                     _dfs(neighbor)
 
-        _dfs(self.node)
+        _dfs(self.nodes[0])
         return dfs_nodes
 
     def bfs(self):
         bfs_nodes = []
 
         q = Queue()
-        q.put(self.node)
+        q.put(self.nodes[0])
         visited = set()
-        visited.add(self.node)
+        visited.add(self.nodes[0])
 
         while not q.empty():
             node = q.get()
