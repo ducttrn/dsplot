@@ -1,4 +1,7 @@
+import uuid
+
+
 class Node:
-    def __init__(self, val, id_=None):
+    def __init__(self, val):
         self.val = val
-        self.id = id_
+        self.id = uuid.uuid4()

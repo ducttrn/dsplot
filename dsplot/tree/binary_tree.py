@@ -1,3 +1,4 @@
+import uuid
 from queue import Queue
 from typing import List, Literal, Union
 
@@ -5,21 +6,20 @@ import pygraphviz
 
 from dsplot.config import config
 from dsplot.errors import InputException
+from dsplot.tree.tree_node import BinaryTreeNode
 
-from .tree_node import BinaryTreeNode
-
-Node = Union[int, str]
+node_values = Union[int, str]
 
 
 class BinaryTree:
-    def __init__(self, nodes: List[Node]):
+    def __init__(self, nodes: List[node_values]):
         if not nodes:
             raise InputException('Input list must have at least 1 element.')
 
         self.root = self.construct_tree(nodes)
 
     @staticmethod
-    def construct_tree(nodes: List[Node]) -> BinaryTreeNode:
+    def construct_tree(nodes: List[node_values]) -> BinaryTreeNode:
         nodes = iter(nodes)
         root = BinaryTreeNode(next(nodes))
 
@@ -70,14 +70,13 @@ class BinaryTree:
         style: str,
         fill_color: str,
     ):
-        cur_id = 0
         q = Queue()
-        q.put((self.root, cur_id))
+        q.put(self.root)
 
         while not q.empty():
-            node, node_id = q.get()
+            node = q.get()
             graph.add_node(
-                node_id,
+                node.id,
                 label=node.val,
                 color=border_color,
                 shape=shape,
@@ -85,31 +84,31 @@ class BinaryTree:
                 fillcolor=fill_color,
             )
 
-            cur_id += 1
-            graph.add_edge(node_id, cur_id)
             if node.left:
-                q.put((node.left, cur_id))
+                graph.add_edge(node.id, node.left.id)
+                q.put(node.left)
             else:
-                graph.add_node(
-                    cur_id,
-                    label=config.LEAF_LABEL,
-                    color=border_color,
-                    shape=config.LEAF_SHAPE,
-                )
+                self._add_leaf(graph, node, border_color)
 
-            cur_id += 1
-            graph.add_edge(node_id, cur_id)
             if node.right:
-                q.put((node.right, cur_id))
+                graph.add_edge(node.id, node.right.id)
+                q.put(node.right)
             else:
-                graph.add_node(
-                    cur_id,
-                    label=config.LEAF_LABEL,
-                    color=border_color,
-                    shape=config.LEAF_SHAPE,
-                )
+                self._add_leaf(graph, node, border_color)
 
-    def preorder(self) -> List[Node]:
+    @staticmethod
+    def _add_leaf(graph: pygraphviz.AGraph, node: BinaryTreeNode, border_color: str):
+        # Generate random id for leaves
+        leaf_id = uuid.uuid4()
+        graph.add_edge(node.id, leaf_id)
+        graph.add_node(
+            leaf_id,
+            label=config.LEAF_LABEL,
+            color=border_color,
+            shape=config.LEAF_SHAPE,
+        )
+
+    def preorder(self) -> List[node_values]:
         return list(self._preorder(self.root))
 
     def _preorder(self, node):
@@ -118,7 +117,7 @@ class BinaryTree:
             yield from self._preorder(node.left)
             yield from self._preorder(node.right)
 
-    def inorder(self) -> List[Node]:
+    def inorder(self) -> List[node_values]:
         return list(self._inorder(self.root))
 
     def _inorder(self, node):
@@ -127,7 +126,7 @@ class BinaryTree:
             yield node.val
             yield from self._inorder(node.right)
 
-    def postorder(self) -> List[Node]:
+    def postorder(self) -> List[node_values]:
         return list(self._postorder(self.root))
 
     def _postorder(self, node):
