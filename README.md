@@ -86,6 +86,20 @@ tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
 tree.plot(orientation='LR', border_color='#FFCE30', fill_color='#aec6cf')
 ```
 ![colored](https://github.com/billtrn/dsplot/blob/master/img/color_tree.png?raw=true)
+
+- Edge values for Graphs: <br>
+For edge values, `str` and `int` data types are supported at the moment.
+```python
+from dsplot.graph import Graph
+
+graph = Graph(
+    {0: [1, 4, 5], 1: [3, 4], 2: [1], 3: [2, 4], 4: [], 5: []},
+    directed=True,
+    edges={'01': 1, '04': 4, '05': 5, '13': 3, '14': 4, '21': 2, '32': 3, '34': 4},
+)
+graph.plot()
+```
+![edge](https://github.com/billtrn/dsplot/blob/master/img/edge_graph.png?raw=true)
 ## 🎁 Additional features
 ### 1. Tree traversals:
 ```python
