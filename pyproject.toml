@@ -3,7 +3,7 @@ skip-string-normalization = true
 
 [tool.poetry]
 name = "dsplot"
-version = "0.8.0"
+version = "0.9.0"
 description = "Visualize Tree, Graph, and Matrix data structures with ease."
 authors = ["Bill <trantriducs@gmail.com>"]
 license = "MIT"
