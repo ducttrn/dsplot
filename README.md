@@ -1,4 +1,9 @@
-# Data Structure Plot (DSPlot)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/logo.png?raw=true" alt="dsplot-logo">
+</p>
+<hr />
+# DSPlot - Data Structure Visualization
+[![PyPI version](https://badge.fury.io/py/dsplot.svg)](https://badge.fury.io/py/dsplot)
 [![Build Status](https://travis-ci.com/billtrn/dsplot.svg?branch=master)](https://travis-ci.com/billtrn/dsplot)
 [![Coverage Status](https://coveralls.io/repos/github/billtrn/dsplot/badge.svg?branch=master)](https://coveralls.io/github/billtrn/dsplot?branch=master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/billtrn/dsplot/blob/master/LICENSE)
