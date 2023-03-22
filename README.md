@@ -1,12 +1,30 @@
 <p align="center">
   <img src="https://github.com/billtrn/dsplot/blob/master/img/logo.png?raw=true" alt="dsplot-logo">
 </p>
+
+<h1 align="center">
+DSPlot - Data Structure Visualization
+</h1>
+
+<p align="center">
+  <a href="https://badge.fury.io/py/dsplot">
+    <img src="https://badge.fury.io/py/dsplot.svg" alt="PyPI version" height="18">
+  </a>
+  <a href="https://travis-ci.com/billtrn/dsplot">
+    <img src="https://travis-ci.com/billtrn/dsplot.svg?branch=master" alt="Build Status" height="18">
+  </a>
+  <a href="https://coveralls.io/github/billtrn/dsplot?branch=master">
+    <img src="https://coveralls.io/repos/github/billtrn/dsplot/badge.svg?branch=master" alt="Coverage Status" height="18">
+  </a>
+  <a href="https://github.com/billtrn/dsplot/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License" height="18">
+  </a>
+
 <hr />
-# DSPlot - Data Structure Visualization
-[![PyPI version](https://badge.fury.io/py/dsplot.svg)](https://badge.fury.io/py/dsplot)
-[![Build Status](https://travis-ci.com/billtrn/dsplot.svg?branch=master)](https://travis-ci.com/billtrn/dsplot)
-[![Coverage Status](https://coveralls.io/repos/github/billtrn/dsplot/badge.svg?branch=master)](https://coveralls.io/github/billtrn/dsplot?branch=master)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/billtrn/dsplot/blob/master/LICENSE)
+
+<p align="center">
+  Graph Pythonically. 📏📐🖍️🐍
+</p>
 
 DSPlot is a tool to simply visualize tree and graph data structures by serving as a Pythonic interface to the [Graphviz](https://graphviz.org/) layout.
 DSPlot allows you to easily draw trees, graphs (both directed and undirected), and matrices by passing data in primitive form and directly output an image.
@@ -42,7 +60,9 @@ from dsplot.tree import BinaryTree
 tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
 tree.plot()
 ```
-![tree](https://github.com/billtrn/dsplot/blob/master/img/tree.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/tree.png?raw=true" alt="tree" width="400">
+</p>
 
 - Graph:
 ```python
@@ -53,7 +73,10 @@ graph = Graph(
 )
 graph.plot()
 ```
-![directed](https://github.com/billtrn/dsplot/blob/master/img/directed.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/directed.png?raw=true" alt="directed" width="300">
+</p>
+
 ```python
 from dsplot.graph import Graph
 
@@ -62,7 +85,9 @@ graph = Graph(
 )
 graph.plot()
 ```
-![undirected](https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/undirected.png?raw=true" alt="undirected" width="400">
+</p>
 
 - Matrix:
 ```python
@@ -71,7 +96,9 @@ from dsplot.matrix import Matrix
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [1, 2, 6]])
 matrix.plot()
 ```
-![matrix](https://github.com/billtrn/dsplot/blob/master/img/matrix.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/matrix.png?raw=true" alt="matrix" width="200">
+</p>
 
 - Customization: <br>
 You can customize the border color, shape, style, and fill color of the nodes, and the orientation (left to right - LR, top to bottom - TB) of the graph.
@@ -83,14 +110,19 @@ graph = Graph(
 )
 graph.plot(fill_color='#aec6cf')
 ```
-![colored](https://github.com/billtrn/dsplot/blob/master/img/color_graph.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/color_graph.png?raw=true" alt="color_graph" width="300">
+</p>
+
 ```python
 from dsplot.tree import BinaryTree
 
 tree = BinaryTree(nodes=[5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
 tree.plot(orientation='LR', border_color='#FFCE30', fill_color='#aec6cf')
 ```
-![colored](https://github.com/billtrn/dsplot/blob/master/img/color_tree.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/color_tree.png?raw=true" alt="color_tree" width="400">
+</p>
 
 - Edge values for Graphs: <br>
 For edge values, `str` and `int` data types are supported at the moment.
@@ -104,7 +136,10 @@ graph = Graph(
 )
 graph.plot()
 ```
-![edge](https://github.com/billtrn/dsplot/blob/master/img/edge_graph.png?raw=true)
+<p align="center">
+  <img src="https://github.com/billtrn/dsplot/blob/master/img/edge_graph.png?raw=true" alt="edge_graph" width="300">
+</p>
+
 ## 🎁 Additional features
 ### 1. Tree traversals:
 ```python
