@@ -29,6 +29,13 @@ DSPlot - Data Structure Visualization
 DSPlot is a tool to simply visualize tree and graph data structures by serving as a Pythonic interface to the [Graphviz](https://graphviz.org/) layout.
 DSPlot allows you to easily draw trees, graphs (both directed and undirected), and matrices by passing data in primitive form and directly output an image.
 
+
+## 📖 Table of Contents
+- [⬇ Installation](#-installation)
+- [📦 Features](#-features)
+- [🎁 Bonus](#-bonus)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 ## ⬇ Installation
 
 #### 0. Prerequisites
@@ -52,7 +59,7 @@ apt-get install graphviz libgraphviz-dev
 $ pip install dsplot
 ```
 
-## 🤟 Usage
+## 📦 Features
 - Binary Tree:
 ```python
 from dsplot.tree import BinaryTree
@@ -140,7 +147,7 @@ graph.plot()
   <img src="https://github.com/billtrn/dsplot/blob/master/img/edge_graph.png?raw=true" alt="edge_graph" width="300">
 </p>
 
-## 🎁 Additional features
+## 🎁 Bonus
 ### 1. Tree traversals:
 ```python
 from dsplot.tree import BinaryTree
@@ -170,5 +177,13 @@ print(graph.bfs())
 print(graph.dfs())
 # [0, 1, 3, 2, 4, 5]
 ```
+## 🤝 Contributing
+Contributions, issues and feature requests are welcome! <br>
+### Development setup
+- `DSPlot` uses `poetry` for dependency management. For guidance on how to install `poetry`, please refer to the [official documentation](https://python-poetry.org/docs/#installation).
+- After cloning the repo, run `poetry install` to install the dependencies.
+### Running tests
+- `DSPlot` uses `pytest` for testing. To run the tests, run `poetry run pytest` in the root directory.
+
 ## 📄 License
 [MIT](./LICENSE)
