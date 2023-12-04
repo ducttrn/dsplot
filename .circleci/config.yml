@@ -15,6 +15,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo apt-get install graphviz
+            sudo apt-get install libgraphviz-dev
             pip install poetry
             poetry install
             pip install coveralls
