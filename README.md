@@ -39,7 +39,7 @@ DSPlot allows you to easily draw trees, graphs (both directed and undirected), a
 ## ⬇ Installation
 
 #### 0. Prerequisites
-- Python 3.7 or later
+- Python 3.9 or later
 - `pip`
 - `virtualenv`
 
