@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@1.5.0
+  coveralls: coveralls/coveralls@1.0.6
 
 jobs:
   build-and-test:
@@ -27,7 +28,7 @@ jobs:
 
       - run:
           name: Upload Coverage to Coveralls
-          command: coveralls
+          command: coveralls/upload
 
 workflows:
   test:
