@@ -10,8 +10,8 @@ DSPlot - Data Structure Visualization
   <a href="https://badge.fury.io/py/dsplot">
     <img src="https://badge.fury.io/py/dsplot.svg" alt="PyPI version" height="18">
   </a>
-  <a href="https://travis-ci.com/billtrn/dsplot">
-    <img src="https://travis-ci.com/billtrn/dsplot.svg?branch=master" alt="Build Status" height="18">
+  <a href="https://dl.circleci.com/status-badge/redirect/circleci/5AFmWEafY2avg6nRh9G3Rw/7QZG8vWJDWRJPjULgXxNSc/tree/main">
+    <img src="https://dl.circleci.com/status-badge/img/circleci/5AFmWEafY2avg6nRh9G3Rw/7QZG8vWJDWRJPjULgXxNSc/tree/main.svg?style=svg" alt="Build Status" height="18">
   </a>
   <a href="https://coveralls.io/github/billtrn/dsplot?branch=master">
     <img src="https://coveralls.io/repos/github/billtrn/dsplot/badge.svg?branch=master" alt="Coverage Status" height="18">

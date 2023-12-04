@@ -1,0 +1,35 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.5.0
+
+jobs:
+  build-and-test:
+    docker:
+      - image: circleci/python:3.9
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install graphviz libgraphviz-dev
+            pip install poetry
+            poetry install
+            pip install coveralls
+
+      - run:
+          name: Run Tests
+          command: |
+            poetry run pytest --cov=dsplot
+
+      - run:
+          name: Upload Coverage to Coveralls
+          command: coveralls
+
+workflows:
+  test:
+    jobs:
+      - build-and-test
