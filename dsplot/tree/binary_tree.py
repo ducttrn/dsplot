@@ -29,13 +29,11 @@ class BinaryTree:
         while True:
             cur_node = q.get()
             try:
-                left_val = next(nodes)
-                if left_val is not None:
+                if (left_val := next(nodes)) is not None:
                     cur_node.left = BinaryTreeNode(left_val)
                     q.put(cur_node.left)
 
-                right_val = next(nodes)
-                if right_val is not None:
+                if (right_val := next(nodes)) is not None:
                     cur_node.right = BinaryTreeNode(right_val)
                     q.put(cur_node.right)
 
